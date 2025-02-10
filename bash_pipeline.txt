@@ -1,0 +1,22 @@
+@echo OFF
+
+rem Configure paths and environment
+rem Update this to your conda installation path
+set CONDAPATH=C:\Users\Ka251005\AppData\Local\anaconda3
+
+rem Update this to the name of the environment
+set ENVNAME=care_homes
+
+rem Activate the conda environment
+if %ENVNAME%==base (set ENVPATH=%CONDAPATH%) else (set ENVPATH=%CONDAPATH%\envs\%ENVNAME%)
+call "%CONDAPATH%\Scripts\activate.bat" "%ENVPATH%"
+
+rem Run the Python script
+set SCRIPT_PATH=C:\path\to\your\python_script.py
+python "%SCRIPT_PATH%"
+
+rem Deactivate the environment
+call conda deactivate
+
+rem Pause for debugging (optional for Task Scheduler)
+rem pause
